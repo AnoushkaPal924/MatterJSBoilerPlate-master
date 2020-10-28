@@ -3,9 +3,9 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
-const constraint = Matter.Constraint;
+const Constraint = Matter.Constraint;
 
-var gameState = "onSling";
+var gameState = "launched";
 
 var engine, world ;
 
@@ -84,7 +84,7 @@ function setup() {
   
   ball = new Ball(200,200,30)
 
-  sling = new Sling(200,"ball" )
+  sling = new Sling(ball.body,{x:200,y:200})
   
 }
 
@@ -164,47 +164,25 @@ function draw() {
   sling.display();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  drawSprites();
+drawSprites();
  
 }
 
-// function mouseDragged(){
-//     if (gameState!=="launched"){
-//         Matter.Body.setPosition(polygon, {x: mouseX , y: mouseY});
-//     }
-// }
+function mouseReleased(){
+  console.log('lolo')
+     sling.fly();
+     gameState = "launched";
+ }
+
+ function mouseDragged(){
+   console.log('lol')
+ if (gameState == "launched"){
+  console.log('yay')
+        Matter.Body.setPosition(ball.body, {x: mouseX , y: mouseY});
+    }
+ }
 
 
-// function mouseReleased(){
-//     sling.fly();
-//     gameState = "launched";
-// }
+
 
 

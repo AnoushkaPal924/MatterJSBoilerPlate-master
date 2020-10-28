@@ -1,9 +1,9 @@
 class Ball{
     constructor(x, y, radius,options) {
         var options = {
-            // 'restitution':0.8,
-            // 'friction':1.0,
-            // 'density':1.0
+            'restitution':0.8,
+            'friction':1.0,
+            'density':1.0
         }
         this.body = Matter.Bodies.circle(x, y, radius, options);
         //this.body = ellipse(x, y, radius, options);
